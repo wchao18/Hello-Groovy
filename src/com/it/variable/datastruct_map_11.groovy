@@ -8,11 +8,12 @@ println colors.red
 
 //添加元素
 colors.yellow = 'ffff00'
+colors.black = 'ff9999'
 println colors.toMapString()
 
 colors.complex = [a: 1, b: 2]
 println colors.toMapString()
-println colors.getClass()
+println colors.getClass()  //class java.util.LinkedHashMap
 
 //map的详细操作
 def students = [
@@ -63,7 +64,7 @@ println group
 //排序
 def sort = students.sort {
     s1, s2 ->
-        def score1 = s1.value.score
+        def score1 =  s1.value.score
         def score2 = s2.value.score
         return score1 == score2 ? 0 : score1 < score2 ? -1 : 1
 }

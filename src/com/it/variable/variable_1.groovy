@@ -15,3 +15,7 @@ def c = "哈哈"
 println(a.class)
 println(b.class)
 println(c.class)
+
+//变换数据类型
+a='test'
+println a.class

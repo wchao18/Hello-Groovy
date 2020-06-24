@@ -4,8 +4,8 @@ package com.it.variable
 //this、owner、delegate
 
 def scriptClouser = {
-    println('test:' + this)  //代表闭包定义出的类
-    println('test:' + owner) //代表闭包定义出的类或者对象
+    println('test:' + this)  //代表闭包定义处的类
+    println('test:' + owner) //代表闭包定义处的类或者对象
     println('test:' + delegate) //代表任意对象，默认与owner一样
 }
 scriptClouser.call()
@@ -14,15 +14,15 @@ scriptClouser.call()
 class People {
 
     def static scriptClouser = {
-        println('test:' + this)  //代表闭包定义出的类
-        println('test:' + owner) //代表闭包定义出的类或者对象
+        println('test:' + this)  //代表闭包定义处的类
+        println('test:' + owner) //代表闭包定义处的类或者对象
         println('test:' + delegate) //代表任意对象，默认与owner一样
     }
 
     def static say() {
         def scriptClouser = {
-            println('test:' + this)  //代表闭包定义出的类
-            println('test:' + owner) //代表闭包定义出的类或者对象
+            println('test:' + this)  //代表闭包定义处的类
+            println('test:' + owner) //代表闭包定义处的类或者对象
             println('test:' + delegate) //代表任意对象，默认与owner一样
         }
     }
@@ -34,18 +34,21 @@ People.say().scriptClouser.call()
 //闭包中定义一个闭包
 def nestClouser = {
     def innerClouser = {
-        println('test:' + this)  //代表闭包定义出的类
-        println('test:' + owner) //代表闭包定义出的类或者对象
-        println('test:' + delegate) //代表任意对象，默认与owner一样
+        println('inner:' + this)  //代表闭包定义处的类
+        println('inner:' + owner) //代表闭包定义处的类或者对象,nestClouser处对象
+        println('inner:' + delegate) //代表任意对象，默认与owner一样,nestClouser处对象
     }
     //this和owner不能修改
-    innerClouser.delegate = new People();
+    //innerClouser.delegate = new People();
     innerClouser.call()
+    println('outer:' + this)  //代表闭包定义处的类
+    println('outer:' + owner) //代表闭包定义处的类或者对象
+    println('outer:' + delegate) //代表任意对象，默认与owner一样
 }
 nestClouser.call()
 
 //闭包的委托策略
-class Student{
+class Student {
     String name;
 
     Student(String name) {
@@ -55,12 +58,12 @@ class Student{
         "my name is ${name}"
     }
 
-    String toString(){
+    String toString() {
         say.call()
     }
 }
 
-class Teacher{
+class Teacher {
     //String name
     String name1
 

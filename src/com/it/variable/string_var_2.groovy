@@ -1,15 +1,22 @@
 package com.it.variable
 
 //双引号可扩展字符串
-def str = "a single string"
+str = "a single string"
 println str.class
 
 def doubleStr = "test ${str}"
 println doubleStr
 println doubleStr.class
 println echo(doubleStr)
+println echo1(doubleStr)
 
+//返回类型-弱类型
 def echo(String msg){
+    return "传参" + msg;
+}
+
+//返回类型-强类型
+String echo1(String msg){
     return "传参" + msg;
 }
 
@@ -20,7 +27,7 @@ println str2
 def str1 = 'a single string'
 println str1
 
-//三单引号
+//三单引号,\：续行符
 def thupleName = '''\
 test
 test1

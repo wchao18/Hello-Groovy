@@ -22,6 +22,7 @@ switch (x){
     case BigDecimal:
         result = "bigdecimal"
         break
+    default: println "error"
 }
 println result
 

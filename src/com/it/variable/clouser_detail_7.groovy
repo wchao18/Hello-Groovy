@@ -25,8 +25,11 @@ int callSum(int number) {
     number.times { s -> result += s }
     return result
 }
-
 println callSum(10)
+
+10.times {
+    println it
+}
 
 
 

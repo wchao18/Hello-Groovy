@@ -6,16 +6,21 @@ def str = 'the 2 end 10'
 
 str.each { s -> print s.multiply(2) }
 println()
-str.each { s -> print s }
+
+str.each { String s -> print s }
 println()
+
 println str.each { s -> s }
 println()
 
 
 //find 找到满足第一个条件的数据
-println str.find {
-    s -> s.isNumber()
+def findFirstNumber = str.find {
+    it-> it.isNumber()
 }
+println findFirstNumber
+
+
 println list = str.findAll {
     s -> s.isNumber()
 }
