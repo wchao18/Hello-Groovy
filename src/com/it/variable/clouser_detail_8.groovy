@@ -20,6 +20,10 @@ def findFirstNumber = str.find {
 }
 println findFirstNumber
 
+//find 找到满足第一个条件的数据
+println str.find({
+    s->s.isNumber()
+})
 
 println list = str.findAll {
     s -> s.isNumber()
@@ -35,6 +39,7 @@ println str.every() {
     s -> s.isNumber()
 }
 
+//字符串转大写
 println str.collect {
     s -> s.toUpperCase()
 }
