@@ -6,7 +6,10 @@ def colors = [red: 'ff0000', green: '00ff00', blue: '0000ff']
 println colors['red']
 println colors.red
 
-//添加元素
+//添加元素1
+colors.put("white","45666")
+
+//添加元素2
 colors.yellow = 'ffff00'
 colors.black = 'ff9999'
 println colors.toMapString()

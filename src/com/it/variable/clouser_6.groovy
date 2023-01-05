@@ -2,12 +2,14 @@ package com.it.variable
 
 //闭包
 def clouserStr = {
-    println 'hello groovy'
+    s->
+    println "hello ${s}"
 }
+
 //闭包调用
-clouserStr.call()
+clouserStr.call("groovy")
 //闭包调用
-clouserStr()
+cl  ouserStr("java")
 
 def test_method = { name, age -> println "hello " + name + "," + "my age is ${age}" }
 
@@ -19,5 +21,5 @@ test_method.call(name, 26)
 def test_default_param = { println "hello ${it}" }
 
 //闭包也有返回值,默认null
-def result = test_default_param('groovy')
+def result = test_default_param("groovy")
 println result

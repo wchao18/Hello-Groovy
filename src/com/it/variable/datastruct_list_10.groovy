@@ -33,5 +33,10 @@ println("****************")
 println findList.min{return Math.abs(it)}
 println findList.max{return Math.abs(it)}
 
+//添加元素
+list.add(789)
+list<< 456
+print list
+
 
 
